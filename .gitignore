@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Скомпільовані файли та вихідні збірки
+dist/
+build/
+
+# Gulp кеші та тимчасові файли
+.cache/
+gulpfile.js.map
+
+# Експортування налаштувань середовища
+.env
+.env.local
+.env.development
+.env.production
+
+# IDE та редактори
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

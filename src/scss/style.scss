@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+$white: #FFFFFF;
+$green: #C6C9A5;
+$light-gray: #F6F6F6;
+$dark-gray: #A2A2A2;
+$black: #181818;
+$dark-green: #A1A483;
+$light-blue: #B7D1D1;
+$more-light-blue: #DCEEEE;
+$orange: #FF7114;
+$light-green: #E1E4C2;
+$black: #000;
+
+$main-font-size: 17px;
+$max-width-container: 1256px;
+$side-padding-container: 25px;
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    min-width: 20rem;
+    line-height: 1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+button {
+    cursor: pointer;
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    background-color: transparent;
+}
+
+/* Стилі за замовченням */
+
+body {
+    font-family: Inter;
+    font-size: $main-font-size;
+    color: $black;
+    background-color: $white;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    flex: 1 1 auto;
+}
+
+/* Налаштування адаптиву */
+[class*="__container"] {
+    max-width: $max-width-container;
+    padding-left: $side-padding-container;
+    padding-right: $side-padding-container;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: $dark-green;
+    height: 79px;
+    &__container {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+    &__logo {
+        height: 23px;
+    }
+    &__nav {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__menu {
+        display: flex;
+        gap: 31px;
+        li {
+            color: $white;
+            font-size: $main-font-size;
+            font-weight: 400;
+        }
+    }
+    &__cart {
+        padding: 9px 8.51px 9.44px 8px;
+        border: solid 1px $white;
+        border-radius: 50%;
+        img {
+            width: 17.485px;
+            height: 15.559px;
+        }
+    }
+}

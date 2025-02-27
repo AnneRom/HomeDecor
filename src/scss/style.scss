@@ -199,12 +199,18 @@ body {
     .sideMenu__icon {
         width: toRem(29);
         height: toRem(29);
+        transition: all 0.3s ease;
     }
     .sideMenu__icon a img {
         width: 100%;
     }
     &__logo {
         height: toRem(23);
+        @include adaptiveValue("height", 23, 13, 0, 1400, 320);
+    }
+    &__logo img {
+        height: 100%;
+        width: 100%;
     }
     &__content {
         display: flex;
@@ -220,7 +226,8 @@ body {
     &__menu {
         display: flex;
         // gap: 31px;
-        @include adaptiveValue("gap", 31, 10, 0, 1400, 850);
+        @include adaptiveValue("column-gap", 31, 10, 0, 1400, 850);
+        row-gap: toRem(30);
         
         li {
             color: $white;
@@ -232,10 +239,13 @@ body {
         }
     }
     &__cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: toRem(9) toRem(8.51) toRem(9.44) toRem(8);
         border: solid 1px $white;
         border-radius: 50%;
-        transition: transform 0.3s ease;
+        transition: all 0.3s ease;
         img {
             width: toRem(17.485);
             height: toRem(15.559);
@@ -273,7 +283,7 @@ body {
             display: block;
         }
         .sideMenu__icon.open a img {
-            src: url("../img/icons/icon-close.svg");
+            content: url("../img/icons/icon-close.svg");
         }
         
     }
@@ -283,10 +293,7 @@ body {
 }
 @media (max-width: $tablet) {
     .header {
-        // background-color: #000;
-        &__logo {
-            height: toRem(18);
-        }
+    
 
     }
     
@@ -295,5 +302,24 @@ body {
     
 }
 @media (max-width: $mobileSmall) {
+    .header {
+        .sideMenu__icon {
+            width: toRem(25.67);
+            height: toRem(25.67);
+        }
+        &__cart {
+            padding: toRem(6) toRem(5.66) toRem(6.31) toRem(5.3);
+            a {
+                display: inline-block;
+                width: toRem(12.24);
+                height: toRem(10.892);
+            }
+            img {
+                width: toRem(12.24);
+                height: toRem(10.892);
+            }
+        }
+
+    }
     
 }

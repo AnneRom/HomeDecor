@@ -12,4 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
         sideMenu.classList.toggle('active_sideMenu');
         menuToggle.classList.toggle('open');
     })
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 850) {
+            sideMenu.classList.remove('active_sideMenu');
+            menuToggle.classList.remove('open');
+        }
+    });
 });

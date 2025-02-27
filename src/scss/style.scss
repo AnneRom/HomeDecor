@@ -1,3 +1,6 @@
+// @import "base/mixins";
+@use "sass:math";
+
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
 $white: #FFFFFF;
@@ -12,9 +15,102 @@ $orange: #FF7114;
 $light-green: #E1E4C2;
 $black: #000;
 
-$main-font-size: 17px;
-$max-width-container: 1256px;
-$side-padding-container: 25px;
+$main-font-size: 17;
+$containerWidth: 1256;
+$side-padding-container: 25;
+
+$minWidth: 320;
+$maxWidth: 1920;
+$maxWidthContainer: 1256;
+$containerPadding: 25;
+
+//Percent
+@function percent($px, $from: 100) {
+	$result: math.div($px, $from) * 100%;
+	@return $result;
+}
+//REM
+@function toRem($px, $current: 16) {
+	$result: math.div($px, $current) + rem;
+	@return $result;
+}
+//EM
+@function toEm($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
+
+// Брейк-поїнти
+$pc: toEm($containerWidth); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+$tablet: toEm(991.98); // Планшети, деякі телефони в горизонтальному положенні
+$mobile: toEm(767.98); // Телефони L
+$mobileSmall: toEm(479.98); // Телефони S
+
+// Тип адаптива:
+// 1 = чуйність (у контейнера немає брейкпоінтів),
+// 2 = по брейк-поїнт (контейнер змінює свою ширину по брейк-поїнт)
+$responsiveType: 1;
+
+@mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
+	@if ($startSize==0) {
+		$startSize: 0.000001;
+	}
+	@if ($minSize==0) {
+		$minSize: 0.000001;
+	}
+
+	// Для calc();
+	$addSize: math.div($startSize - $minSize, 16);
+
+	@if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+		$widthFrom: $maxWidth;
+	}
+
+	// Брейк-поїнти в EM
+	$widthFromMedia: toEm($widthFrom);
+	$widthToMedia: toEm($widthTo);
+
+	// Формула плаваючого значення
+	// Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+	$slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+	$yIntersection: -$widthTo * $slope + $minSize;
+	@if ($yIntersection==0) {
+		$yIntersection: 0.000001;
+	}
+	$flyValue: #{toRem($yIntersection)}" + " #{$slope * 100}vw;
+
+	// Отримання значення властивості
+	$propertyValue: #{"clamp(" toRem($minSize) "," $flyValue "," toRem($startSize) ")"};
+	// Якщо негативні значення
+	@if ($minSize > $startSize) {
+		$propertyValue: #{"clamp(" toRem($startSize) "," $flyValue "," toRem($minSize) ")"};
+	}
+
+	// Встановлюємо значення за замовчуванням
+	@if $keepSize != 1 and $keepSize != 3 {
+		@media (min-width: $widthFromMedia) {
+			#{$property}: toRem($startSize);
+		}
+	}
+	// Адаптуємо розмір у проміжку між зазначеними ширинами в'юпорту
+	@media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+		#{$property}: $propertyValue;
+
+		// Якщо підтримується clamp();
+		//@supports (#{$property}: $propertyValue) {
+		//	#{$property}: $propertyValue;
+		//}
+		// Якщо не підтримується clamp();
+		//@supports not (#{$property}: $propertyValue) {
+		//	#{$property}: calc(#{toRem($minSize)} + #{$addSize} * (100vw - #{toRem($widthTo)}) / #{math.div($widthFrom, 16) - math.div($widthTo, 16)});
+		//}
+	}
+	@if $keepSize != 1 and $keepSize != 2 {
+		@media (max-width: $widthToMedia) {
+			#{$property}: toRem($minSize);
+		}
+	}
+}
 
 * {
     padding: 0;
@@ -61,7 +157,7 @@ button {
 
 body {
     font-family: Inter;
-    font-size: $main-font-size;
+    font-size: toRem($main-font-size);
     color: $black;
     background-color: $white;
 }
@@ -79,15 +175,17 @@ body {
 
 /* Налаштування адаптиву */
 [class*="__container"] {
-    max-width: $max-width-container;
-    padding-left: $side-padding-container;
-    padding-right: $side-padding-container;
+    max-width: toRem($containerWidth);
+    padding-left: toRem($side-padding-container);
+    padding-right: toRem($side-padding-container);
     margin: 0 auto;
 }
 
 .header {
     background-color: $dark-green;
-    height: 79px;
+    height: toRem(79);
+    position: relative;
+    z-index: 5;
     &__container {
         margin: 0 auto;
         display: flex;
@@ -95,31 +193,107 @@ body {
         justify-content: space-between;
         height: 100%;
     }
+    &__sideMenu {
+        display: none;
+    }
+    .sideMenu__icon {
+        width: toRem(29);
+        height: toRem(29);
+    }
+    .sideMenu__icon a img {
+        width: 100%;
+    }
     &__logo {
-        height: 23px;
+        height: toRem(23);
+    }
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        gap: toRem(50);
     }
     &__nav {
         flex: 1;
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
     }
     &__menu {
         display: flex;
-        gap: 31px;
+        // gap: 31px;
+        @include adaptiveValue("gap", 31, 10, 0, 1400, 850);
+        
         li {
             color: $white;
-            font-size: $main-font-size;
+            font-size: toRem($main-font-size);
             font-weight: 400;
+        }
+        li:hover {
+            text-decoration: underline;
         }
     }
     &__cart {
-        padding: 9px 8.51px 9.44px 8px;
+        padding: toRem(9) toRem(8.51) toRem(9.44) toRem(8);
         border: solid 1px $white;
         border-radius: 50%;
+        transition: transform 0.3s ease;
         img {
-            width: 17.485px;
-            height: 15.559px;
+            width: toRem(17.485);
+            height: toRem(15.559);
         }
     }
+    &__cart:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: toRem(850)) {
+    .header {
+        &__nav {
+            // display: none;
+            position: fixed;
+            background-color: $dark-green;
+            left: 0;
+            top: toRem(79);
+            // width: 50vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: start;
+            padding: toRem(50);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        .active_sideMenu {
+            transform: translateX(0);
+        }
+        &__menu {
+                flex-direction: column;
+        }
+        &__sideMenu {
+            display: block;
+        }
+        .sideMenu__icon.open a img {
+            src: url("../img/icons/icon-close.svg");
+        }
+        
+    }
+}
+@media (max-width: $pc) {
+
+}
+@media (max-width: $tablet) {
+    .header {
+        // background-color: #000;
+        &__logo {
+            height: toRem(18);
+        }
+
+    }
+    
+}
+@media (max-width: $mobile) {
+    
+}
+@media (max-width: $mobileSmall) {
+    
 }

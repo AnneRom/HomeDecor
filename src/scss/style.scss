@@ -1,4 +1,3 @@
-// @import "base/mixins";
 @use "sass:math";
 
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
@@ -182,10 +181,14 @@ body {
 }
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    transition: transform 0.5s ease;
     background-color: $dark-green;
-    height: toRem(79);
-    position: relative;
-    z-index: 5;
+    @include adaptiveValue("height", 79, 52, 0, 600, 375);
     &__container {
         margin: 0 auto;
         display: flex;
@@ -197,8 +200,8 @@ body {
         display: none;
     }
     .sideMenu__icon {
-        width: toRem(29);
-        height: toRem(29);
+        @include adaptiveValue("width", 29, 25.667, 0, 600, 375);
+        @include adaptiveValue("height", 29, 25.667, 0, 600, 375);
         transition: all 0.3s ease;
     }
     .sideMenu__icon a img {
@@ -223,6 +226,10 @@ body {
         justify-content: start;
         align-items: center;
     }
+    &__nav.no-transition {
+        transition: none !important;
+    }
+    
     &__menu {
         display: flex;
         // gap: 31px;
@@ -242,13 +249,16 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: toRem(9) toRem(8.51) toRem(9.44) toRem(8);
+        @include adaptiveValue("padding-top", 9, 6, 0, 600, 375);
+        @include adaptiveValue("padding-right", 8.51, 5.51, 0, 600, 375);
+        @include adaptiveValue("padding-bottom", 9.44, 6.44, 0, 600, 375);
+        @include adaptiveValue("padding-left", 8, 5, 0, 600, 375);
         border: solid 1px $white;
         border-radius: 50%;
         transition: all 0.3s ease;
         img {
-            width: toRem(17.485);
-            height: toRem(15.559);
+            @include adaptiveValue("width", 17.485, 12.24, 0, 600, 375);
+            @include adaptiveValue("height", 15.559, 10.892, 0, 600, 375);
         }
     }
     &__cart:hover {
@@ -256,16 +266,17 @@ body {
         transform: scale(1.1);
     }
 }
+.header.hidden {
+    transform: translateY(-100%);
+}
 
 @media (max-width: toRem(850)) {
     .header {
         &__nav {
-            // display: none;
             position: fixed;
             background-color: $dark-green;
             left: 0;
-            top: toRem(79);
-            // width: 50vw;
+            @include adaptiveValue("top", 79, 52, 0, 600, 375);
             height: 100vh;
             justify-content: center;
             align-items: start;
@@ -292,34 +303,12 @@ body {
 
 }
 @media (max-width: $tablet) {
-    .header {
     
-
-    }
     
 }
 @media (max-width: $mobile) {
     
 }
 @media (max-width: $mobileSmall) {
-    .header {
-        .sideMenu__icon {
-            width: toRem(25.67);
-            height: toRem(25.67);
-        }
-        &__cart {
-            padding: toRem(6) toRem(5.66) toRem(6.31) toRem(5.3);
-            a {
-                display: inline-block;
-                width: toRem(12.24);
-                height: toRem(10.892);
-            }
-            img {
-                width: toRem(12.24);
-                height: toRem(10.892);
-            }
-        }
 
-    }
-    
 }

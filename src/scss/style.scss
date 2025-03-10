@@ -1,6 +1,8 @@
-@use "sass:math";
+// @use "base/mixins" as *;
+// @use "base/variables" as *;
+// @use "base/reset" as *;
 
-@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+// @use "layout/header" as *;
 
 $white: #FFFFFF;
 $green: #C6C9A5;
@@ -12,7 +14,6 @@ $light-blue: #B7D1D1;
 $more-light-blue: #DCEEEE;
 $orange: #FF7114;
 $light-green: #E1E4C2;
-$black: #000;
 
 $main-font-size: 17;
 $containerWidth: 1256;
@@ -22,6 +23,13 @@ $minWidth: 320;
 $maxWidth: 1920;
 $maxWidthContainer: 1256;
 $containerPadding: 25;
+
+// Тип адаптива:
+// 1 = чуйність (у контейнера немає брейкпоінтів),
+// 2 = по брейк-поїнт (контейнер змінює свою ширину по брейк-поїнт)
+$responsiveType: 1;
+
+@use "sass:math";
 
 //Percent
 @function percent($px, $from: 100) {
@@ -44,11 +52,6 @@ $pc: toEm($containerWidth); // ПК, ноутбуки, деякі планшет
 $tablet: toEm(991.98); // Планшети, деякі телефони в горизонтальному положенні
 $mobile: toEm(767.98); // Телефони L
 $mobileSmall: toEm(479.98); // Телефони S
-
-// Тип адаптива:
-// 1 = чуйність (у контейнера немає брейкпоінтів),
-// 2 = по брейк-поїнт (контейнер змінює свою ширину по брейк-поїнт)
-$responsiveType: 1;
 
 @mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
 	@if ($startSize==0) {
@@ -111,6 +114,8 @@ $responsiveType: 1;
 	}
 }
 
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
 * {
     padding: 0;
     margin: 0;
@@ -152,13 +157,15 @@ button {
     background-color: transparent;
 }
 
-/* Стилі за замовченням */
-
 body {
     font-family: Inter;
     font-size: toRem($main-font-size);
     color: $black;
     background-color: $white;
+}
+body.no-scroll {
+    overflow: hidden;
+    height: 100%;
 }
 
 .wrapper {
@@ -303,12 +310,58 @@ body {
 
 }
 @media (max-width: $tablet) {
-    
-    
+  
 }
 @media (max-width: $mobile) {
     
 }
 @media (max-width: $mobileSmall) {
 
+}
+
+.hero {
+    @include adaptiveValue("margin-top", 79, 52, 0, 600, 375);
+    
+    &__container {
+        padding-top: toRem(46);
+        padding-bottom: toRem(46);
+    }
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &__content-text {
+        background-color: $light-gray;
+        padding-left: toRem(79);
+        padding-top: toRem(125);
+        
+        .hero-title {
+            max-width: toRem(410);
+            font-size: toRem(70);
+            font-weight: 700;
+            line-height: 1.1; 
+        }
+        
+        .hero-title-description {
+        }
+        .big-title-description {
+        }
+    }
+
+    &__btn {
+    }
+    &__content-img {
+    }
+}
+.new-collection {
+    font-size: toRem(14);
+    font-weight: 500;
+    line-height: 1.36;
+    letter-spacing: toRem(1.35);
+}
+.big-title {
+}
+
+
+.btn {
 }

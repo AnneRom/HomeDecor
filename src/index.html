@@ -6,10 +6,27 @@
 <body>
     @@include('html/header.html',{})
     <main>
-        <img src="@img/Main.jpg" alt="Main">
-        <img src="@img/Main.jpg" alt="Main">
-        <img src="@img/Main.jpg" alt="Main">
-        <img src="@img/Main.jpg" alt="Main">
+        <section class="hero">
+            <div class="hero__container">
+                <div class="hero__content">
+                    <div class="hero__content-text">
+                        <p class="new-collection">NEW COLLECTION</p>
+                        <h1 class="hero-title">The Beauty Of Design</h1>
+                        <p class="hero-title-description big-title-description">Both functional and decorative, which feels artisan-made but has a contemporary look.</p>
+                        <button class="btn hero__btn">EXPLORE</button>
+                    </div>
+                    <div class="hero__content-img">
+                        <img src="@img/Main.jpg" alt="Main">
+                    </div>
+                </div>  
+            </div>
+        </section>
+        <section class="collection">
+            <div class="collection__container">
+                 <div class="collection__note"><p>Place seasonal & targeted discount benefits here</p></div>
+            </div>
+        </section>
+       
     </main>
     @@include('html/footer.html',{})
     <script src="js/app.min.js"></script>

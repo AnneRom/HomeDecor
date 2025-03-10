@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
         sideMenu.classList.toggle('active_sideMenu');
         menuToggle.classList.toggle('open');
+        document.body.classList.toggle('no-scroll');
     })
     window.addEventListener('resize', () => {
         if (window.innerWidth > 850) {
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     window.addEventListener ('scroll', () => {
         let scrollTop = window.scrollY || document.documentElement.scrollTop;
-        
+
         if ((scrollTop > lastScrollTop) && (scrollTop > header.offsetHeight)) {
             header.classList.add('hidden');
         } else {

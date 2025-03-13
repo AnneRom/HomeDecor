@@ -1,0 +1,78 @@
+.hero {
+    @include adaptiveValue("margin-top", 79, 52, 0, 600, 375);
+    
+    &__container {
+        padding-top: toRem(46);
+        padding-bottom: toRem(46);
+    }
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &__content-text {
+        background-color: $light-gray;
+        @include adaptiveValue("padding-left", 79, 23, 0, 1400, 320);
+        @include adaptiveValue("padding-top", 125, 28, 0, 1400, 320);
+        padding-right: toRem(42);
+        
+       .hero__label:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 13, 8, 0, 1400, 600);
+        }
+
+        .text-content-hero {
+            @include adaptiveValue("max-width", 410, 250, 0, 1400, 320);
+        }
+        .hero-title {
+            @include adaptiveValue("font-size", 70, 40, 0, 1400, 320);
+            font-weight: 700;
+            line-height: 1.1; 
+        }
+        .hero-title:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 22, 12, 0, 1400, 320);
+        }
+        
+        .hero-title-description {
+            font-size: toRem(18);
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 34px;
+        }
+        // .hero-title-description {}
+        .big-title-description:not(:last-child) { 
+            // margin-bottom: 34px;
+            // @include adaptiveValue("margin-bottom", 34, 15, 0, 1400, 320); 
+        }
+    }
+
+    &__btn {
+        line-height: 1.5;
+        padding: toRem(13) toRem(40);
+
+    }
+    &__content-img {
+    }
+}
+.new-collection {
+    font-size: toRem(14);
+    font-weight: 500;
+    line-height: 1.36;
+    letter-spacing: toRem(1.35);
+}
+.big-title {
+}
+
+
+.btn {
+    background-color: $black;
+    border-radius: toRem(44);
+    font-weight: 500;
+    color: $white;
+    letter-spacing: toRem(4);
+    text-transform: uppercase;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background-color: $light-blue;
+    border-radius: toRem(15);
+}

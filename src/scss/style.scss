@@ -41,8 +41,8 @@ $responsiveType: 1;
 
 [class*="__container"] {
     max-width: toRem($containerWidth);
-    padding-left: toRem($containerPadding);
-    padding-right: toRem($containerPadding);
+    @include adaptiveValue("padding-left", $containerPadding, 0, 0, 600, 320);
+    @include adaptiveValue("padding-right", $containerPadding, 0, 0, 600, 320);
     margin: 0 auto;
 }
 

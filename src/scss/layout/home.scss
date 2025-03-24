@@ -8,6 +8,10 @@
     letter-spacing: toRem(4);
     text-transform: uppercase;
     line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
     transition: all 0.3s ease;
 }
 .btn:hover {
@@ -70,12 +74,8 @@
     }
 
     &__btn {
-        display: flex;
         @include adaptiveValue("width", 196, 144, 0, 1400, 320);
         @include adaptiveValue("height", 50, 35, 0, 1400, 320);
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
         line-height: 1.5;
     }
     &__content-img {
@@ -121,4 +121,119 @@
     }
 }
 
+.collections {
+    &__container {
+        @include adaptiveValue("padding-bottom", 92, 40, 0, 1400, 320);
+    }
+    &__note {
+        text-align: center;
+        @include adaptiveValue("padding-bottom", 24, 12, 0, 1400, 600);
+        @include adaptiveValue("font-size", 20, 10, 0, 1400, 320);
+        border-bottom: toRem(2) solid $gray-line;
+    }
+    &__grid {
+        @include adaptiveValue("padding-top", 48, 62, 0, 1400, 600);
+        @include adaptiveValue("padding-bottom", 94, 40, 0, 1400, 320);
+        display: flex;
+        @include adaptiveValue("gap", 16, 20, 0, 1400, 600);
+    }
+    &__companies {
+        display: flex;
+        justify-content: space-between;
+        @include adaptiveValue("gap", 40, 20, 0, 1400, 320);
+        flex-wrap: wrap;
+    }
+}
 
+.collection-item {
+    width: toRem(408);
+    height: toRem(525);
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    @include adaptiveValue("padding-top", 107.4, 55.41, 0, 1400, 320);
+}
+.collection-item-decor {
+    background-color: $light-green;
+    background-image: url(../../img/collection-vase.png);
+    @include adaptiveValue("padding-top", 50, 32, 0, 1400, 320);
+    @include adaptiveValue("background-size", 273, 277, 0, 1400, 600);
+}
+.collection-item-kitchen {
+    background-color: $more-light-blue;
+    background-image: url(../../img/collection-plates.png);
+    @include adaptiveValue("background-size", 358, 318, 0, 1400, 600);
+}
+.collection-item-furniture {
+    background-color: $beige;
+    background-image: url(../../img/collection-chair.png);
+    @include adaptiveValue("background-size", 287, 287, 0, 1400, 600);
+}
+
+.collection-item__label {
+    @include adaptiveValue("margin-bottom", 37.2, 0, 0, 1400, 320);
+}
+.collection-item__title {
+    @include adaptiveValue("font-size",  40, 24, 0, 1400, 320);
+    font-weight: 600;
+    line-height: 1.2; 
+    letter-spacing: toRem(0.25);
+    display: flex;
+    @include adaptiveValue("height",  115.2, 67.025, 0, 1400, 320);
+    @include adaptiveValue("width",  222, 129.164, 0, 600, 320);
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.collection-item__title:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 6.4, 21.6, 0, 1400, 600);
+}
+.collection-item__btn {
+    @include adaptiveValue("width", 196, 156, 0, 1400, 320);
+    @include adaptiveValue("height", 50, 35, 0, 1400, 320);
+}
+
+@media (max-width: toRem(845)) {
+    .collections__grid {
+        flex-direction: column;
+    }
+    .collection-item {
+        @include adaptiveValue("height",  292, 200, 0, 845, 320);
+        @include adaptiveValue("padding-left",  39, 23, 0, 845, 320);
+        width: 100%;
+        background-position: right bottom;
+        align-items: start;
+        text-align: left;
+    }
+}
+@media (max-width: toRem(600)) {
+    .collections__grid {
+        @include adaptiveValue("padding-top", 62, 42, 0, 600, 320);
+        @include adaptiveValue("gap", 20, 0, 0, 600, 320);
+    }
+    .collection-item__title:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 21.6, 17.56, 0, 600, 320);
+    }
+    .collection-item-decor {
+        @include adaptiveValue("background-size", 277, 160, 0, 600, 320);
+    }
+    .collection-item-kitchen {
+        @include adaptiveValue("background-size", 318, 190, 0, 600, 320);
+    }
+    .collection-item-furniture {
+        @include adaptiveValue("background-size", 287, 188, 0, 600, 320);
+    }
+    
+}
+
+.company-item {
+    @include adaptiveValue("height", 35.74, 18.96, 0, 1400, 320);
+}
+.company-item img {
+    height: 100%;
+    width: auto;
+}

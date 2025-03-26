@@ -21,7 +21,7 @@
 .big-title {
 }
 .new-collection {
-    font-size: toRem(14);
+    @include adaptiveValue("font-size", 14, 10, 0, 600, 375);
     font-weight: 500;
     line-height: 1.36;
     letter-spacing: toRem(1.35);
@@ -235,4 +235,103 @@
 .company-item img {
     height: 100%;
     width: auto;
+}
+
+.purchase{
+    @include adaptiveValue("height", 568, 243, 0, 1400, 320);
+    background: url(../../img/purchase-bg.jpg) no-repeat center / cover;
+    &__content {
+        @include adaptiveValue("padding-top", 91, 34.04, 0, 1400, 320);
+        @include adaptiveValue("padding-left", 239, 33, 0, 1400, 320);
+        color: $white;
+    }
+    
+    &__title {
+        @include adaptiveValue("font-size", 40, 24, 0, 1400, 320);
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: toRem(0.25);
+        @include adaptiveValue("max-width", 329, 190, 0, 1400, 320);
+    }
+    &__title:not(:last-child){
+        @include adaptiveValue("margin-bottom", 33, 11.64, 0, 1400, 320);
+    }
+    
+    &__btn {
+        @include adaptiveValue("width", 196, 144, 0, 1400, 320);
+        @include adaptiveValue("height", 50, 35, 0, 1400, 320);
+    }
+}
+
+.purchase__content .big-title {
+    margin-bottom: 20px;
+    // @include adaptiveValue("margin-bottom", 15, 11.36, 0, 1400, 320);
+}
+
+
+.benefits {
+    &__container {
+        @include adaptiveValue("padding-top", 80, 40, 0, 1400, 320);
+        @include adaptiveValue("padding-bottom", 86, 40, 0, 1400, 320);
+        max-width: toRem(1100);
+    }
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: toRem(15);
+        @include adaptiveValue("row-gap", 45, 30, 0, 1400, 320);
+    }
+    &__item {
+        @include adaptiveValue("width", 276, 222, 0, 600, 320);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    &__item-image {
+        @include adaptiveValue("width", 90, 60, 0, 600, 320);
+        @include adaptiveValue("height", 90, 60, 0, 600, 320);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            @include adaptiveValue("height", 50, 33.33, 0, 600, 320);
+            object-fit: contain; 
+        }
+    }
+    &__item-image:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 24, 5, 0, 1400, 600);
+    }
+    &__item-title {
+        @include adaptiveValue("font-size", 22, 16, 0, 600, 320);
+        font-weight: 600;
+        line-height: 1.5;
+    }
+    &__item-title:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 13, 7, 0, 1400, 600);
+    }
+
+    &__item-text {
+        @include adaptiveValue("font-size", 17, 12, 0, 1400, 320);
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: toRem(0.25);
+    }
+}
+
+@media (max-width: $mobile) {
+    .benefits__items {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: toRem(600)) {
+    .benefits__item-image:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 5, 10, 0, 600, 320);
+    }
+    .benefits__item-title:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 7, 11, 0, 600, 320);
+    }
 }

@@ -2,6 +2,9 @@ import webp from "gulp-webp";
 
 export const images = async () => {
    const imagemin = (await import("gulp-imagemin")).default;
+   const imageminMozjpeg = (await import("imagemin-mozjpeg")).default;
+   const imageminPngquant = (await import("imagemin-pngquant")).default;
+   const imageminSvgo = (await import("imagemin-svgo")).default;
     return app.gulp.src(app.path.src.images, { sourcemaps: true })
        .pipe(app.plugins.plumber(
           app.plugins.notify.onError({

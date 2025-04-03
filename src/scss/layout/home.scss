@@ -27,7 +27,7 @@
     letter-spacing: toRem(1.35);
 }
 /* #endregion*/
-
+/* #region Hero*/
 .hero {
     @include adaptiveValue("margin-top", 79, 52, 0, 600, 375);
     
@@ -82,15 +82,6 @@
         position: relative;
         height: auto;
     }
-    // &__content-img::before {
-    //     content: "";
-    //     position: absolute;
-    //     width: 31.54px;
-    //     height: 31.54px;
-    //     background-image: url(@img/icons/plus.svg);
-    //     top: 10px;
-    //     left: 10px;
-    // }
     &__content-img img {
         width: 100%;
         height: 100%;
@@ -120,6 +111,8 @@
         grid-template-columns: 1fr;
     }
 }
+/* #endregion */
+/* #region Collections*/
 
 .collections {
     &__container {
@@ -236,7 +229,8 @@
     height: 100%;
     width: auto;
 }
-
+/* #endregion*/
+/* #region Purchase*/
 .purchase{
     @include adaptiveValue("height", 568, 243, 0, 1400, 320);
     background: url(../../img/purchase-bg.jpg) no-repeat center / cover;
@@ -264,7 +258,8 @@
         @include adaptiveValue("height", 50, 35, 0, 1400, 320);
     }
 }
-
+/* #endregion*/
+/* #region Benefits*/
 
 .benefits {
     &__container {
@@ -332,7 +327,8 @@
         @include adaptiveValue("margin-bottom", 7, 11, 0, 600, 320);
     }
 }
-
+/* #endregion*/
+/* #region More*/
 .more {
     &__container {
         @include adaptiveValue("padding-bottom", 80, 40, 0, 1400, 320);
@@ -404,7 +400,8 @@
         align-items: start;
     }
 }
-
+/* #endregion*/
+/* #region BestSellers*/
 .bestSellers {
     &__container {
         display: flex;
@@ -445,7 +442,7 @@
     }
     &__image img {
         width: 100%;
-        height: 100%
+        height: auto;
     }
     &__content {
         display: flex;
@@ -481,3 +478,4 @@
     }
 
 }
+/* #endregion */

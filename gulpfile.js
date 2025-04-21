@@ -4,6 +4,8 @@ import { path } from "./gulp/config/path.js";
 import { plugins } from "./gulp/config/plungins.js";
 
 global.app = {
+    isBuild: process.argv.includes('--build'),
+    isDev: !process.argv.includes('--build'),
     path: path,
     gulp: gulp,
     plugins: plugins

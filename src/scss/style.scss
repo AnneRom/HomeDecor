@@ -44,9 +44,13 @@ $responsiveType: 1;
 
 [class*="__container"] {
     max-width: toRem($containerWidth);
-    @include adaptiveValue("padding-left", $containerPadding, 0, 0, 600, 320);
-    @include adaptiveValue("padding-right", $containerPadding, 0, 0, 600, 320);
+    @include adaptiveValue("padding-left", $containerPadding, 18, 0, 600, 320);
+    @include adaptiveValue("padding-right", $containerPadding, 18, 0, 600, 320);
     margin: 0 auto;
+}
+.hero__container, .collections__container,  .more__container {
+    @include adaptiveValue("padding-left", $containerPadding, 0, 0, 600, 320);
+    @include adaptiveValue("padding-right", $containerPadding, 0, 0, 600, 320);  
 }
 
 @import "layout/header";

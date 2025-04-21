@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener ('scroll', () => {
         let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
+        if (sideMenu.classList.contains('active_sideMenu')) {
+            return;
+        }
+
         if ((scrollTop > lastScrollTop) && (scrollTop > header.offsetHeight)) {
             header.classList.add('hidden');
         } else {

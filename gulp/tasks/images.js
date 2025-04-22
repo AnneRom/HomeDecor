@@ -16,8 +16,18 @@ export const images = async () => {
         .pipe(app.plugins.newer(app.path.build.images))
 
         // Генеруємо WEBP тільки для JPG/PNG
-        .pipe(webp())
-        .pipe(app.gulp.dest(app.path.build.images))
+        .pipe(
+			app.plugins.if(
+				app.isWebP,
+				webp()
+			)
+		)
+		.pipe(
+			app.plugins.if(
+				app.isWebP,
+				app.gulp.dest(app.path.build.images)
+			)
+		)
 
         // Мінімізуємо JPG/PNG
         .pipe(app.gulp.src(app.path.src.images))

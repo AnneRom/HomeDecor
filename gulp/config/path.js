@@ -30,7 +30,7 @@ export const path = {
     buildFolder: buildFolder,
     scrFolder: srcFolder,
     rootFolder: rootFolder,
-    ftp: `test`
+    ftp: `htdocs`
 }
 
 

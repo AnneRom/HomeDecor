@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+    @@include('html/head.html',{
+        "title":"Home Decor"
+    })
+<body>
+    @@include('html/header.html',{})
+    <main>
+        <section class="hero">
+            <div class="hero__container">
+                <div class="hero__content">
+                    <div class="hero__content-text">
+                        <p class="hero__label new-collection">NEW COLLECTION</p>
+                        <div class="text-content-hero">
+                            <h1 class="hero-title">The Beauty Of Design</h1>
+                        <p class="hero-title-description big-title-description">Both functional and decorative, which feels artisan-made but has a contemporary look.</p>
+                        </div>
+                        <button class="btn hero__btn">EXPLORE</button>
+                    </div>
+                    <div class="hero__content-img">
+                        <img src="@img/Main.jpg" alt="Main">
+                        <div class="plus plus-one">
+                            <a href="#"><img src="@img/icons/plus.svg" alt="Plus"></a>
+                        </div>
+                        <div class="plus plus-two">
+                            <a href="#"><img src="@img/icons/plus.svg" alt="Plus"></a>
+                        </div>
+                    </div>       
+                </div>  
+            </div>
+        </section>
+        <section class="collections">
+            <div class="collections__container">
+                 <div class="collections__note"><p>Place seasonal & targeted discount benefits here</p></div>
+                 <div class="collections__grid">
+                    <div class="collection-item collection-item-decor">
+                        <p class="collection-item__label new-collection">NEW COLLECTION</p>
+                        <h3 class="collection-item__title">Decor & Wellness</h3>
+                        <button class="btn collection-item__btn">Show more</button>
+                    </div>
+                    <div class="collection-item collection-item-kitchen">
+                        <h3 class="collection-item__title">Kitchen & Dining</h3>
+                        <button class="btn collection-item__btn">Show more</button>
+                    </div>
+                    <div class="collection-item collection-item-furniture">
+                        <h3 class="collection-item__title">Shop Furniture</h3>
+                        <button class="btn collection-item__btn">Show more</button>
+                    </div>
+                 </div>
+                 <div class="collections__companies">
+                    <div class="company-item">
+                        <img src="@img/icons/collection-icons/icon-1.svg" alt="Company1">
+                    </div>
+                    <div class="company-item">
+                        <img src="@img/icons/collection-icons/icon2.svg" alt="Company2">
+                    </div>
+                    <div class="company-item">
+                        <img src="@img/icons/collection-icons/icon-3.svg" alt="Company3">
+                    </div>
+                    <div class="company-item">
+                        <img src="@img/icons/collection-icons/icon-4.svg" alt="Company4">
+                    </div>
+                    <div class="company-item">
+                        <img src="@img/icons/collection-icons/icon-5.svg" alt="Company5">
+                    </div>
+                    <div class="company-item">
+                        <img src="@img/icons/collection-icons/icon-6.svg" alt="Company6">
+                    </div>
+                 </div>
+            </div>
+        </section>
+        <section class="purchase">
+            <div class="purchase__content">
+                <p class="purchase__label new-collection">NEW ARRIVALS</p>
+                <h2 class="purchase__title">Everything you need for your living room</h2>
+                <button class="btn purchase__btn">PURCHASE</button>
+            </div>
+        </section>
+        <section class="benefits">
+            <div class="benefits__container">
+                <div class="benefits__items">
+                    <div class="benefits__item">
+                        <div class="benefits__item-image"> <img src="@img/Clock.png.svg" alt="Clock"></div>
+                        <h3 class="benefits__item-title">Long-life objects</h3>
+                        <p class="benefits__item-text">
+                            Short text describing one of your product or service advantages. Try being creative.
+                        </p>
+                    </div>
+                    <div class="benefits__item">
+                        <div class="benefits__item-image"> <img src="@img/Van.png.svg" alt="Van"></div>
+                        <h3 class="benefits__item-title">Fast Shipping</h3>
+                        <p class="benefits__item-text">
+                            Short text describing one of your product or service advantages. Try being creative.
+                        </p>
+                    </div>
+                    <div class="benefits__item">
+                        <div class="benefits__item-image"> <img src="@img/wallet.png.svg" alt="Wallet"></div>
+                        <h3 class="benefits__item-title">10% cashback</h3>
+                        <p class="benefits__item-text">
+                            Short text describing one of your product or service advantages. Try being creative.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="more">
+            <div class="more__container">
+                <h2 class="more__title">Furniture designed for you</h2>
+                <div class="more__image"><img src="@img/more-image.jpg" alt="More-image"></div>
+                <div class="more__content content-more">
+                    <div class="content-more-left">
+                        <h3 class="left-title">Short subtitle for a section </h3>
+                        <p class="left-text">A small description of what you can offer your customers or why they should choose your service</p>
+                    </div>
+                    <div class="content-more-right">
+                        <button class="btn more__btn">FIND MORE</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bestSellers">
+            <div class="bestSellers__container">
+                <h2 class="bestSellers__title">Shop best sellers</h2>
+                <div class="bestSellers__grid">
+                    <div class="product"><!--1-->
+                        <div class="product__image"><img src="@img/products/Product-1.jpg" alt="Product-1"></div>
+                        <div class="product__content">
+                            <div class="product__text">
+                                <h3>Product Name</h3>
+                                <p>€5.00</p>
+                            </div>
+                            <div class="product__icon">
+                                <img src="@img/icons/icon-cart-gray.svg" alt="Cart-gray">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product"><!--2-->
+                        <div class="product__image"><img src="@img/products/Product-2.jpg" alt="Product-2"></div>
+                        <div class="product__content">
+                            <div class="product__text">
+                                <h3>Product Name</h3>
+                                <p>€5.00</p>
+                            </div>
+                            <div class="product__icon">
+                                <img src="@img/icons/icon-cart-gray.svg" alt="Cart-gray">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product"><!--3-->
+                        <div class="product__image"><img src="@img/products/Product-3.jpg" alt="Product-3"></div>
+                        <div class="product__content">
+                            <div class="product__text">
+                                <h3>Product Name</h3>
+                                <p>€5.00</p>
+                            </div>
+                            <div class="product__icon">
+                                <img src="@img/icons/icon-cart-gray.svg" alt="Cart-gray">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product"><!--4-->
+                        <div class="product__image"><img src="@img/products/Product-4.jpg" alt="Product-4"></div>
+                        <div class="product__content">
+                            <div class="product__text">
+                                <h3>Product Name</h3>
+                                <p>€5.00</p>
+                            </div>
+                            <div class="product__icon">
+                                <img src="@img/icons/icon-cart-gray.svg" alt="Cart-gray">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product__image"><img src="@img/products/Product-5.jpg" alt="Product-5"></div>
+                        <div class="product__content">
+                            <div class="product__text">
+                                <h3>Product Name</h3>
+                                <p>€5.00</p>
+                            </div>
+                            <div class="product__icon">
+                                <img src="@img/icons/icon-cart-gray.svg" alt="Cart-gray">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product__image"><img src="@img/products/Product-6.jpg" alt="Product-6"></div>
+                        <div class="product__content">
+                            <div class="product__text">
+                                <h3>Product Name</h3>
+                                <p>€5.00</p>
+                            </div>
+                            <div class="product__icon">
+                                <img src="@img/icons/icon-cart-gray.svg" alt="Cart-gray">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product__image"><img src="@img/products/Product-7.jpg" alt="Product-7"></div>
+                        <div class="product__content">
+                            <div class="product__text">
+                                <h3>Product Name</h3>
+                                <p>€5.00</p>
+                            </div>
+                            <div class="product__icon">
+                                <img src="@img/icons/icon-cart-gray.svg" alt="Cart-gray">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product__image"><img src="@img/products/Product-8.jpg" alt="Product-8"></div>
+                        <div class="product__content">
+                            <div class="product__text">
+                                <h3>Product Name</h3>
+                                <p>€5.00</p>
+                            </div>
+                            <div class="product__icon">
+                                <img src="@img/icons/icon-cart-gray.svg" alt="Cart-gray">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>       
+    </main>
+    @@include('html/footer.html',{})
+    <script src="js/app.min.js"></script>
+</body>
+</html>

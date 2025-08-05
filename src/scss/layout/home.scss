@@ -1,0 +1,490 @@
+/* #region Модулі*/
+.btn {
+    background-color: $black;
+    border-radius: toRem(44);
+    @include adaptiveValue("font-size", 17, 12, 0, 1400, 320);
+    font-weight: 500;
+    color: $white;
+    letter-spacing: toRem(4);
+    text-transform: uppercase;
+    line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background-color: $light-blue;
+    border-radius: toRem(15);
+}
+.big-title {
+}
+.new-collection {
+    @include adaptiveValue("font-size", 14, 10, 0, 600, 375);
+    font-weight: 500;
+    line-height: 1.36;
+    letter-spacing: toRem(1.35);
+}
+/* #endregion*/
+/* #region Hero*/
+.hero {
+    @include adaptiveValue("margin-top", 79, 52, 0, 600, 375);
+    
+    &__container {
+        @include adaptiveValue("padding-top", 46, 0, 0, 1400, 320);
+        @include adaptiveValue("padding-bottom", 46, 16, 0, 1400, 320);
+    }
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &__content-text {
+        background-color: $light-gray;
+        @include adaptiveValue("padding-left", 79, 23, 0, 1400, 320);
+        @include adaptiveValue("padding-top", 125, 28, 0, 1400, 320);
+        padding-right: toRem(42);
+        padding-bottom: toRem(38);
+        
+       .hero__label:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 13, 8, 0, 1400, 600);
+        }
+
+        .text-content-hero {
+            @include adaptiveValue("max-width", 410, 250, 0, 1400, 320);
+        } 
+        .text-content-hero:not(:last-child) { 
+            @include adaptiveValue("margin-bottom", 34, 15, 0, 1400, 320); 
+        }
+        .hero-title {
+            @include adaptiveValue("font-size", 70, 40, 0, 1400, 320);
+            font-weight: 700;
+            line-height: 1.1; 
+        }
+        .hero-title:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 22, 12, 0, 1400, 320);
+        }
+        
+        .hero-title-description {
+            @include adaptiveValue("font-size", 18, 12, 0, 1400, 320);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+       
+    }
+
+    &__btn {
+        @include adaptiveValue("width", 196, 144, 0, 1400, 320);
+        @include adaptiveValue("height", 50, 35, 0, 1400, 320);
+        line-height: 1.5;
+    }
+    &__content-img {
+        position: relative;
+        height: auto;
+    }
+    &__content-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .plus {
+        position: absolute;
+        @include adaptiveValue("width", 31.538, 18, 0, 1400, 320);
+        @include adaptiveValue("height", 31.538, 18, 0, 1400, 320);  
+        transition: transform 0.3s ease;
+    }
+    .plus:hover {
+        transform: scale(1.1);
+    }
+    .plus-one{
+        top: 20%;
+        left: 60%
+    }
+    .plus-two{
+        right: 30%;
+        bottom: 30%;
+    }
+
+}
+@media (max-width: toRem(845)) {
+    .hero__content{
+        grid-template-columns: 1fr;
+    }
+}
+/* #endregion */
+/* #region Collections*/
+
+.collections {
+    &__container {
+        @include adaptiveValue("padding-bottom", 92, 40, 0, 1400, 320);
+    }
+    &__note {
+        text-align: center;
+        @include adaptiveValue("padding-bottom", 24, 12, 0, 1400, 600);
+        @include adaptiveValue("font-size", 20, 10, 0, 1400, 320);
+        border-bottom: toRem(2) solid $gray-line;
+    }
+    &__grid {
+        @include adaptiveValue("padding-top", 48, 62, 0, 1400, 600);
+        @include adaptiveValue("padding-bottom", 94, 40, 0, 1400, 320);
+        display: flex;
+        @include adaptiveValue("gap", 16, 20, 0, 1400, 600);
+    }
+    &__companies {
+        display: flex;
+        justify-content: space-between;
+        @include adaptiveValue("gap", 40, 15, 0, 1400, 320);
+        flex-wrap: wrap;
+        @include adaptiveValue("padding-left", 0, 18, 0, 600, 320);
+        @include adaptiveValue("padding-right", 0, 18, 0, 600, 320);
+    }
+}
+
+.collection-item {
+    width: toRem(408);
+    height: toRem(525);
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    @include adaptiveValue("padding-top", 107.4, 55.41, 0, 1400, 320);
+}
+.collection-item-decor {
+    background-color: $light-green;
+    background-image: url(../../img/collection-vase.png);
+    @include adaptiveValue("padding-top", 50, 32, 0, 1400, 320);
+    @include adaptiveValue("background-size", 273, 277, 0, 1400, 600);
+}
+.collection-item-kitchen {
+    background-color: $more-light-blue;
+    background-image: url(../../img/collection-plates.png);
+    @include adaptiveValue("background-size", 358, 318, 0, 1400, 600);
+}
+.collection-item-furniture {
+    background-color: $beige;
+    background-image: url(../../img/collection-chair.png);
+    @include adaptiveValue("background-size", 287, 287, 0, 1400, 600);
+}
+
+.collection-item__label {
+    @include adaptiveValue("margin-bottom", 37.2, 0, 0, 1400, 320);
+}
+.collection-item__title {
+    @include adaptiveValue("font-size",  40, 24, 0, 1400, 320);
+    font-weight: 600;
+    line-height: 1.2; 
+    letter-spacing: toRem(0.25);
+    display: flex;
+    @include adaptiveValue("height",  115.2, 67.025, 0, 1400, 320);
+    @include adaptiveValue("width",  222, 129.164, 0, 600, 320);
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.collection-item__title:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 6.4, 21.6, 0, 1400, 600);
+}
+.collection-item__btn {
+    @include adaptiveValue("width", 196, 156, 0, 1400, 320);
+    @include adaptiveValue("height", 50, 35, 0, 1400, 320);
+}
+
+@media (max-width: toRem(845)) {
+    .collections__grid {
+        flex-direction: column;
+    }
+    .collection-item {
+        @include adaptiveValue("height",  292, 200, 0, 845, 320);
+        @include adaptiveValue("padding-left",  39, 23, 0, 845, 320);
+        width: 100%;
+        background-position: right bottom;
+        align-items: start;
+        text-align: left;
+    }
+}
+@media (max-width: toRem(600)) {
+    .collections__grid {
+        @include adaptiveValue("padding-top", 62, 42, 0, 600, 320);
+        @include adaptiveValue("gap", 20, 0, 0, 600, 320);
+    }
+    .collection-item__title:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 21.6, 17.56, 0, 600, 320);
+    }
+    .collection-item-decor {
+        @include adaptiveValue("background-size", 277, 160, 0, 600, 320);
+    }
+    .collection-item-kitchen {
+        @include adaptiveValue("background-size", 318, 190, 0, 600, 320);
+    }
+    .collection-item-furniture {
+        @include adaptiveValue("background-size", 287, 188, 0, 600, 320);
+    }
+}
+
+.company-item {
+    @include adaptiveValue("height", 35.74, 18.96, 0, 1400, 320);
+}
+.company-item img {
+    height: 100%;
+    width: auto;
+}
+/* #endregion*/
+/* #region Purchase*/
+.purchase{
+    @include adaptiveValue("height", 568, 243, 0, 1400, 320);
+    background: url(../../img/purchase-bg.jpg) no-repeat center / cover;
+    &__content {
+        @include adaptiveValue("padding-top", 91, 34.04, 0, 1400, 320);
+        @include adaptiveValue("padding-left", 239, 33, 0, 1400, 320);
+        color: $white;
+    }
+    &__label:not(:last-child){
+        @include adaptiveValue("margin-bottom", 15, 11.36, 0, 600, 320);
+    }
+    &__title {
+        @include adaptiveValue("font-size", 40, 24, 0, 1400, 320);
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: toRem(0.25);
+        @include adaptiveValue("max-width", 329, 190, 0, 1400, 320);
+    }
+    &__title:not(:last-child){
+        @include adaptiveValue("margin-bottom", 33, 11.64, 0, 1400, 320);
+    }
+    
+    &__btn {
+        @include adaptiveValue("width", 196, 144, 0, 1400, 320);
+        @include adaptiveValue("height", 50, 35, 0, 1400, 320);
+    }
+}
+/* #endregion*/
+/* #region Benefits*/
+
+.benefits {
+    &__container {
+        @include adaptiveValue("padding-top", 80, 40, 0, 1400, 320);
+        @include adaptiveValue("padding-bottom", 86, 40, 0, 1400, 320);
+        max-width: toRem(1100);
+    }
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: toRem(15);
+        @include adaptiveValue("row-gap", 45, 30, 0, 1400, 320);
+    }
+    &__item {
+        @include adaptiveValue("width", 276, 222, 0, 600, 320);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    &__item-image {
+        @include adaptiveValue("width", 90, 60, 0, 600, 320);
+        @include adaptiveValue("height", 90, 60, 0, 600, 320);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            @include adaptiveValue("height", 50, 33.33, 0, 600, 320);
+            object-fit: contain; 
+        }
+    }
+    &__item-image:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 24, 5, 0, 1400, 600);
+    }
+    &__item-title {
+        @include adaptiveValue("font-size", 22, 16, 0, 600, 320);
+        font-weight: 600;
+        line-height: 1.5;
+    }
+    &__item-title:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 13, 7, 0, 1400, 600);
+    }
+
+    &__item-text {
+        @include adaptiveValue("font-size", 17, 12, 0, 1400, 320);
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: toRem(0.25);
+    }
+}
+
+@media (max-width: $mobile) {
+    .benefits__items {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: toRem(600)) {
+    .benefits__item-image:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 5, 10, 0, 600, 320);
+    }
+    .benefits__item-title:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 7, 11, 0, 600, 320);
+    }
+}
+/* #endregion*/
+/* #region More*/
+.more {
+    &__container {
+        @include adaptiveValue("padding-bottom", 80, 40, 0, 1400, 320);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__title {
+        @include adaptiveValue("font-size", 40, 24, 0, 1400, 320);
+        @include adaptiveValue("max-width", 590, 211, 0, 1400, 320);
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    &__title:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 50, 24, 0, 1400, 320);
+    }
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+    &__image:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 46, 12, 0, 1400, 320);
+    }
+    &__image img {
+        width: 100%;
+        height: 100%;
+    }
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: toRem(15);
+        @include adaptiveValue("padding-left", 0, 18, 0, 600, 320);
+        @include adaptiveValue("padding-right", 0, 18, 0, 600, 320);
+    }
+}
+
+
+.content-more-left {
+}
+.left-title {
+    @include adaptiveValue("font-size", 22, 16, 0, 600, 320);
+    font-weight: 600;
+    line-height: 1.75; 
+}
+.left-title:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 17.68, 7, 0, 1400, 320);
+}
+.left-text {
+    @include adaptiveValue("font-size", 17, 12, 0, 1400, 320);
+    line-height: 1.5; 
+    letter-spacing: toRem(0.25);
+}
+.content-more-right {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+.more__btn {
+    @include adaptiveValue("width", 196, 144, 0, 1400, 320);
+    @include adaptiveValue("height", 50, 35, 0, 1400, 320);
+}
+
+@media (max-width: toRem(600)) {
+    .more__content {
+        grid-template-columns: 1fr;
+        gap: toRem(25);
+    }
+    .content-more-right {
+        justify-content: start;
+        align-items: start;
+    }
+}
+/* #endregion*/
+/* #region BestSellers*/
+.bestSellers {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 50, 16.68, 0, 1400, 320);
+        text-align: center;
+        @include adaptiveValue("font-size", 40, 24, 0, 1400, 320);
+        font-weight: 600;
+        line-height: 1.42;
+    }
+
+    &__grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        @include adaptiveValue("gap", 19, 8.8, 0, 1400, 320);
+        justify-content: center;
+        @include adaptiveValue("padding-bottom", 55, 28, 0, 1400, 320);
+        border-bottom: toRem(2) solid $gray-line;
+    }
+}
+@media (max-width: $tablet) {
+    .bestSellers__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.product {
+    &__image {}
+    &__image:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 15, 7, 0, 1400, 320);
+    }
+    &__image img {
+        width: 100%;
+        height: auto;
+    }
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        gap: toRem(10);
+    }
+
+    &__text h3{
+        @include adaptiveValue("font-size", 17, 12, 0, 1400, 320);
+        font-weight: 600;
+        line-height: 1.6;
+    }
+
+    &__text p{
+        @include adaptiveValue("font-size", 17, 10, 0, 1400, 320);
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: toRem(0.15);
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        background-color: $background-light-grey;
+        @include adaptiveValue("width", 40, 24, 0, 1400, 320);
+        @include adaptiveValue("height", 40, 24, 0, 1400, 320);
+        border-radius: toRem(25);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+    &__icon img {
+        @include adaptiveValue("width", 16, 10, 0, 1400, 320);
+        height: auto;
+    }
+    &__icon:hover {
+        transform: scale(1.1);
+    }
+
+}
+/* #endregion */

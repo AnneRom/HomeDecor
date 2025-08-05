@@ -1,0 +1,58 @@
+@use "sass:math";
+
+@import "base/mixins";
+@import "base/reset";
+
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+$fontFamily: "Inter";
+$fontSize: toRem(17); 
+
+// Основні кольори
+$mainColor: #000; // Колір шрифту за замовчуванням
+
+// Палітра кольорів
+$white: #FFFFFF;
+$green: #C6C9A5;
+$light-gray: #F6F6F6;
+$dark-gray: #A2A2A2;
+$black: #181818;
+$dark-green: #A1A483;
+$light-blue: #B7D1D1;
+$more-light-blue: #DCEEEE;
+$orange: #FF7114;
+$light-green: #E1E4C2;
+$gray-line: #F3F3F3;
+$beige: #F3EFE1;
+$background-light-grey: #F2F2F2;
+
+$minWidth: 320;
+$maxWidth: 1920;
+$maxWidthContainer: 1256;
+$containerPadding: 25;
+
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поїнти
+$pc: toEm($containerWidth); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+$tablet: toEm(991.98); // Планшети, деякі телефони в горизонтальному положенні
+$mobile: toEm(767.98); // Телефони L
+$mobileSmall: toEm(479.98); // Телефони S
+
+$responsiveType: 1;
+
+[class*="__container"] {
+    max-width: toRem($containerWidth);
+    @include adaptiveValue("padding-left", $containerPadding, 18, 0, 600, 320);
+    @include adaptiveValue("padding-right", $containerPadding, 18, 0, 600, 320);
+    margin: 0 auto;
+}
+.hero__container, .collections__container,  .more__container {
+    @include adaptiveValue("padding-left", $containerPadding, 0, 0, 600, 320);
+    @include adaptiveValue("padding-right", $containerPadding, 0, 0, 600, 320);  
+}
+
+@import "layout/header";
+@import "layout/home";
+@import "layout/footer";

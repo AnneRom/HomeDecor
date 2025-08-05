@@ -1,0 +1,111 @@
+.footer {
+    background-color: $green;
+    @include adaptiveValue("margin-top", 82, 41, 0, 1400, 320);
+
+    &__container {
+        max-width: toRem(1017);
+        @include adaptiveValue("padding-top", 112, 39, 0, 1400, 320);
+        @include adaptiveValue("padding-bottom", 112, 53, 0, 1400, 320);
+    }
+    &__content {
+        color: $white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: toRem(2) solid $gray-line;
+    }
+    &__title {
+        @include adaptiveValue("font-size", 50, 24, 0, 1400, 320);
+        font-weight: 700;
+        line-height: normal;
+    }
+    &__title:not(:last-child){
+        @include adaptiveValue("margin-bottom", 17, 14, 0, 1400, 320);
+    }
+    &__text {
+        opacity: 0.7;
+        text-align: center;
+        @include adaptiveValue("font-size", 18, 12, 0, 1400, 320);
+        font-weight: 400;
+        line-height: 1.5;
+        @include adaptiveValue("max-width", 596, 266, 0, 1400, 320);
+    }
+    &__text:not(:last-child){
+        @include adaptiveValue("margin-bottom", 33, 17, 0, 1400, 320);
+    }
+
+    &__btn {
+        @include adaptiveValue("width", 262, 177, 0, 1400, 320);
+        @include adaptiveValue("height", 50, 35, 0, 1400, 320);
+    }
+    &__btn:not(:last-child){
+        @include adaptiveValue("margin-bottom", 61, 20, 0, 1400, 320);
+    }
+    &__copyright {
+        color: $white;
+        text-align: center;
+        @include adaptiveValue("font-size", 14, 10, 0, 1400, 320);
+        font-weight: 400;
+        opacity: 0.7;
+        @include adaptiveValue("margin-bottom", 34, 55, 0, 1400, 600);
+    }
+
+    &__bottom {
+        @include adaptiveValue("padding-top", 35, 23, 0, 1400, 320);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__logo {
+        height: toRem(23);
+        @include adaptiveValue("height", 25, 11, 0, 1400, 320);
+    }
+    &__logo img {
+        height: 100%;
+        width: 100%;
+    }
+    &__socials {
+        display: flex;
+        @include adaptiveValue("gap", 24, 17.92, 0, 1400, 320);
+        .social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            @include adaptiveValue("width", 45, 34, 0, 1400, 320);
+            @include adaptiveValue("height", 45, 34, 0, 1400, 320);
+            border-radius: 50%;
+            border: toRem(1.51) solid  rgba(255, 255, 255, 0.5);    
+            cursor: pointer;
+            transition: transform 0.3s ease; 
+        }
+        .social:hover {
+            transform: scale(1.1);
+        }
+        .social a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    
+}
+
+@media (max-width:toRem(600)) {
+    .footer__title {
+        @include adaptiveValue("max-width", 517, 228, 0, 600, 320);
+    }
+    .footer__copyright {
+        @include adaptiveValue("margin-bottom", 55, 21, 0, 600, 320);
+    }
+}
+@media (max-width:$mobileSmall) {
+    .footer__bottom {
+        flex-direction: column;
+        gap: toRem(29);
+    }
+    .social img{
+        transform: scale(0.9);
+    }
+}

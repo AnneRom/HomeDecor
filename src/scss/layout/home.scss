@@ -165,7 +165,7 @@
 }
 .collection-item-furniture {
     background-color: $beige;
-    background-image: url(../../img/collection-chair.png);
+    background-image: url(/img/collection-chair.png);
     @include adaptiveValue("background-size", 287, 287, 0, 1400, 600);
 }
 

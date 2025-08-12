@@ -330,21 +330,21 @@ h6 {
 }
 
 .no-webp .collection-item-decor{
-  background-image: url(../../img/collection-vase.png); }
+  background-image: url(../img/collection-vase.png); }
 
 .collection-item-decor {
   background-color: #E1E4C2;
 }
 
 .no-webp .collection-item-kitchen{
-  background-image: url(../../img/collection-plates.png); }
+  background-image: url(../img/collection-plates.png); }
 
 .collection-item-kitchen {
   background-color: #DCEEEE;
 }
 
 .no-webp .collection-item-furniture{
-  background-image: url(/img/collection-chair.png); }
+  background-image: url(../img/collection-chair.png); }
 
 .collection-item-furniture {
   background-color: #F3EFE1;
@@ -370,7 +370,7 @@ h6 {
 /* #region Purchase*/
 
 .no-webp .purchase{
-  background: url(../../img/purchase-bg.jpg) no-repeat center/cover; }
+  background: url(../img/purchase-bg.jpg) no-repeat center/cover; }
 
 .purchase__content {
   color: #FFFFFF;

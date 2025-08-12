@@ -154,18 +154,18 @@
 }
 .collection-item-decor {
     background-color: $light-green;
-    background-image: url(../../img/collection-vase.png);
+    background-image: url(../img/collection-vase.png);
     @include adaptiveValue("padding-top", 50, 32, 0, 1400, 320);
     @include adaptiveValue("background-size", 273, 277, 0, 1400, 600);
 }
 .collection-item-kitchen {
     background-color: $more-light-blue;
-    background-image: url(../../img/collection-plates.png);
+    background-image: url(../img/collection-plates.png);
     @include adaptiveValue("background-size", 358, 318, 0, 1400, 600);
 }
 .collection-item-furniture {
     background-color: $beige;
-    background-image: url(../../img/collection-chair.png);
+    background-image: url(../img/collection-chair.png);
     @include adaptiveValue("background-size", 287, 287, 0, 1400, 600);
 }
 
@@ -235,7 +235,7 @@
 /* #region Purchase*/
 .purchase{
     @include adaptiveValue("height", 568, 243, 0, 1400, 320);
-    background: url(/img/purchase-bg.jpg) no-repeat center / cover;
+    background: url(../img/purchase-bg.jpg) no-repeat center / cover;
     &__content {
         @include adaptiveValue("padding-top", 91, 34.04, 0, 1400, 320);
         @include adaptiveValue("padding-left", 239, 33, 0, 1400, 320);
